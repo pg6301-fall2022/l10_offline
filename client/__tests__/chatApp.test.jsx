@@ -20,4 +20,27 @@ describe("chat app test suite", () => {
       expect(element.innerHTML).toMatchSnapshot();
 
    });
+
+   it("submits new chat message", () => {
+      const element = document.createElement("div");
+      const root = createRoot(element);
+      const onNewMessage = jest.fn();
+
+      act(() =>
+         root.render(<ChatApp messages={[]} onNewMessage={onNewMessage} />)
+      );
+
+      act(() =>
+         Simulate.change(element.querySelector("footer input"), {
+           target: {value: "new message"}
+         })
+      );
+
+      act(() =>
+         Simulate.submit(element.querySelector("footer form"))
+      );
+
+      expect(onNewMessage).toBeCalledWith("new message");
+
+   });
 });
