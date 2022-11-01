@@ -1,0 +1,22 @@
+{
+  "name": "l10_offline",
+  "version": "1.0.0",
+  "description": "Websockets",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.5.0"
+  }
+}
