@@ -1,23 +1,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { ChatApp } from "./chatApp"
 
-function Application() {
-    return(
-      <>
-        <header> Pg6301 - websocket chat </header>
-        <main>
-            <div>Message 1</div>
-            <div>Message 2</div>
-        </main>
-        <footer>
-            <form>
-                <input autoFocus={true} />
-                <button> Send </button>
-            </form>
-        </footer>
-      </>
-    );
-}
+const messages = [
+    {
+        user: "User1",
+        message: "Message 1 from main",
+    },
+    {
+        user: "User2",
+        message: "Message 2",
+    },
+    {
+        user: "User1",
+        message: "Message 3",
+    },
+]
 
 const root = createRoot(document.getElementById("app"));
-root.render(<Application/>);
+root.render(<ChatApp messages={messages}/>);

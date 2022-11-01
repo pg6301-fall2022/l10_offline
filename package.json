@@ -8,7 +8,9 @@
     "build": "npm run build:server && npm run build:client",
     "build:client": "cd client && npm run build",
     "build:server": "cd server && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:server && npm run test:client",
+    "test:client": "cd client && npm run test",
+    "test:server": "cd server && npm run test",
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev"
