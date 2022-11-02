@@ -14,7 +14,7 @@ export function ChatApp({ messages, onNewMessage }) {
             <main>
                 {messages.map(({ message, user }, index) => (
                   <div key={index}>
-                      <strong>{user}:</strong> {message}
+                      <strong>{user}: </strong> {message}
                   </div>
                 ))}
             </main>
