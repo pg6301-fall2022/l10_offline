@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chat test suite shows messages 1`] = `"<header> PG6301 - HK - Chat </header><main><div><strong> Test1: </strong> Yep</div><div><strong> Test2: </strong> Nope</div></main><footer><form><input value=""><button> Send </button></form></footer>"`;
