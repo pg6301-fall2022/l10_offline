@@ -3,14 +3,6 @@ import { createRoot } from "react-dom/client";
 import { ChatApp } from "./chatApp";
 
 const initialMessages = [
-    {
-        user: "User1",
-        message: "Oj there from user1",
-    } ,
-    {
-        user: "User2",
-        message: "Hello there from user2",
-    },
 ];
 
 function UserRegistration( { onUsername } ){
@@ -45,14 +37,16 @@ function Application(){
        }
        ws.onmessage = (event) => {
            console.log("New message ", event);
+           const {user, message} = JSON.parse(event.data);
+           setMessages((messages) => [...messages, { message, user }]);
        }
 
        setWs(ws);
     }, []);
 
     function onNewMessage(message){
-        setMessages((messages) => [...messages, {message, user}]);
-        ws.send("A new message " + message);
+        //setMessages((messages) => [...messages, { message, user }]);
+        ws.send(JSON.stringify( { message, user }));
     }
 
     if(!user){
